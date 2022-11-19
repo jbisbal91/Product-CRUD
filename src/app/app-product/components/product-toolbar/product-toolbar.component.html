@@ -1,0 +1,11 @@
+<button [disabled]="(selectedProduct === undefined)" mat-button class="btn-delete" style="margin-right: 5px;"
+  matTooltip="Delete" (click)="openDeleteProduct()">
+  <mat-icon style="font-size: 16px; margin-left: -11px;">delete</mat-icon>
+</button>
+<button [disabled]="(selectedProduct === undefined )" mat-button class="btn-edit" style="margin-right: 5px;"
+  matTooltip="Edit" (click)="openEditProduct()">
+  <mat-icon style="font-size: 16px; margin-left: -11px;">edit_square</mat-icon>
+</button>
+<button mat-button class="btn-add" matTooltip="Add New Product" (click)="openAddNewProduct()">
+  <mat-icon style="font-size: 16px; margin-left: -12px;">add</mat-icon>
+</button>

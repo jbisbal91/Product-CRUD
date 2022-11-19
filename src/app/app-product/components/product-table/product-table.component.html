@@ -1,0 +1,27 @@
+<div class="table">
+  <table class="table">
+    <thead>
+      <tr class="header">
+        <th> </th>
+        <th style="min-width: 180px;"> Producto </th>
+        <th style="min-width: 130px;"> Numero de serie </th>
+        <th style="min-width: 120px;"> Precio </th>
+        <th style="min-width: 200px; max-width: 250px;"> Descripcion </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="row-table" *ngFor="let product of products" (dblclick)="ondblclick(product)"
+        (click)="onChangeSelectedRow(product)">
+        <td style="text-align: center;"> <img class="img-product" src="{{product.imgURL}}" alt=""></td>
+        <td>{{product.name}}</td>
+        <td>{{product.serialNumber}}</td>
+        <td>${{product.price!==null? product.price.toLocaleString():0}}</td>
+        <td>
+          <span matTooltip="{{product.description.length > 100 ? product.description: ''}}">
+            {{truncate(product.description)}}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
