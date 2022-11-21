@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog'
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { search } from 'src/app/state/actions/product.actions';
 import { AppState } from 'src/app/state/app.state';
 import { selectFeatureCount, selectProduct } from 'src/app/state/selectors/product.selectors';
 import { ProductModel } from '../../models/product.interface';
@@ -29,6 +30,10 @@ export class ProductToolbarComponent implements OnInit {
       this.length = products.length;
     });
     this.onChangedSelected();
+  }
+
+  search(searchValue: any) {
+    this.store.dispatch(search({ search: searchValue.value }));
   }
 
   onChangedSelected() {

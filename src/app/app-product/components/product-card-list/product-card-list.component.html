@@ -1,5 +1,5 @@
 <div class="grid-container">
-    <div style="margin-bottom: 20px;" *ngFor="let product of products$ | async">
+    <div style="margin-bottom: 20px;" *ngFor="let product of products">
         <product-card [product]="product" [selected]="product.id === selectedProduct.id"></product-card>
       </div>
 </div>

@@ -6,9 +6,11 @@ import { productsReducers } from "./reducers/product.reducer";
 export interface AppState {
     product: ProductState;
     selectedProduct: ProductState;
+    search: ProductState;
 }
 
 export const ROOT_REDUCERS:ActionReducerMap<AppState> = {
     product: productsReducers,
-    selectedProduct:productsReducers
+    selectedProduct:productsReducers,
+    search:productsReducers
 }

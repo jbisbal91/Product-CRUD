@@ -1,9 +1,9 @@
 import { createReducer, on } from '@ngrx/store';
 import { ProductState } from 'src/app/app-product/models/product.state';
-import { getAllProducts, loadProducts, selectedProduct } from '../actions/product.actions';
+import { getAllProducts, loadProducts, search, selectedProduct } from '../actions/product.actions';
 
 
-export const initialState: ProductState = { loading: false, products: [] , selectedProduct}
+export const initialState: ProductState = { loading: false, products: [] , selectedProduct, search:''}
 
 export const productsReducers = createReducer(
     initialState,
@@ -15,5 +15,8 @@ export const productsReducers = createReducer(
     }),
     on(selectedProduct, (state, { selectedProduct }) => {
         return { ...state, loading: false, selectedProduct };
+    }),
+    on(search, (state, { search }) => {
+        return { ...state, loading: false, search };
     })
 )

@@ -10,7 +10,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="row-table" *ngFor="let product of products$ | async"
+      <tr class="row-table" *ngFor="let product of products"
       [ngClass]="selectedRow.id === product.id ? 'selected-row':''" (click)="onChangeSelectedRow(product)">
         <td style="text-align: center;"> <img class="img-product" src="{{product.imgURL}}" alt=""></td>
         <td>{{product.name}}</td>

@@ -5,6 +5,14 @@
 
   <div class="col-50">
     <div style="float: right;">
+      
+      <a class="search-input" style="margin-right: 20px;">
+        <mat-form-field style="width: 225px;" appearance="fill">
+          <input class="search_input" matInput type="text" (keyup)="search($event.target)" placeholder="Search...">
+          <mat-icon style="color:#5C5A5B;" matPrefix> search </mat-icon>
+        </mat-form-field>
+      </a>
+
       <button [disabled]="(selectedProduct.id === undefined || selectedProduct.id === '-1')" mat-button class="btn"
         style="margin-right: 10px;" matTooltip="Delete" (click)="openDeleteProduct()">
         <mat-icon style="font-size: 16px; margin-left: -11px;">delete</mat-icon>
