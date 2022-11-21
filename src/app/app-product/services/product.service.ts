@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Firestore, collection, addDoc, collectionData, doc, deleteDoc } from '@angular/fire/firestore';
+import { getFirestore,Firestore, collection, addDoc, collectionData, doc, deleteDoc, updateDoc, setDoc } from '@angular/fire/firestore';
 import { Observable } from 'rxjs';
 import { ProductModel } from '../models/product.interface';
 
@@ -15,13 +15,18 @@ export class ProductService {
     return collectionData(placeRef, { idField: 'id' }) as Observable<any>;
   }
 
-  createProduct(product: any) {
+  createProduct(product: ProductModel) {
     const productRef = collection(this.firestore, 'products');
     return addDoc(productRef, product);
   }
 
+  updateProduct(product: any) {
+    const productRef = doc(this.firestore, `products/${product.id}`);
+    return updateDoc(productRef,product);
+  }
+
   deleteProduct(product: any) {
-    const productRef = doc(this.firestore, `places/${product.id}`);
+    const productRef = doc(this.firestore, `products/${product.id}`);
     return deleteDoc(productRef);
   }
 

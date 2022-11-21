@@ -1,0 +1,52 @@
+<h5 mat-dialog-title>Create Product</h5>
+<mat-dialog-content class="mat-typography">
+  <form [formGroup]="productForm">
+
+    <div class="row">
+      <img class="img-default" src="{{imgURL}}" alt="">
+      <mat-form-field style="width: 100%; margin-left: 30px; margin-top: 60px;" appearance="outline">
+        <mat-label>Product Photo URL</mat-label>
+        <input matInput formControlName="imgURL" (focusout)="uploadImage()" type="text" name="imgURL"
+          placeholder="Product Photo URL" />
+        <mat-error *ngIf="productForm.controls['imgURL'].hasError('required')"> Photo is required </mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Product Name</mat-label>
+      <input matInput formControlName="name" type="text" name="name" placeholder="Product Name" />
+      <mat-error *ngIf="productForm.controls['name'].hasError('required')"> Team Name is required </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Serial Number</mat-label>
+      <input matInput formControlName="serialNumber" type="text" name="serialNumber" placeholder="Serial Number" />
+      <mat-error *ngIf="productForm.controls['serialNumber'].hasError('required')"> Serial number is required
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="full-width" appearance="outline">
+      <mat-label>Price</mat-label>
+      <input matInput formControlName="price" type="text" name="price" placeholder="Price" />
+      <mat-error *ngIf="productForm.controls['price'].hasError('required')"> Price is required </mat-error>
+    </mat-form-field>
+
+    <div class="full-width" style="height: 262px;">
+      <mat-form-field style="height:262px;" class="full-width" appearance="outline">
+        <mat-label>Description</mat-label>
+        <textarea style="height:204px; min-height: 50px; max-height: 204px;" formControlName="description" matInput
+          placeholder="Description"></textarea>
+        <mat-error *ngIf="productForm.controls['description'].hasError('required')"> Description is required
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button [disabled]="(productForm.invalid)" class="btn-add"
+    [ngClass]="productForm.invalid?'btn-add-disabled':'btn-add'" mat-button mat-dialog-close cdkFocusInitial
+    (click)="createProduct()">Add</button>
+</mat-dialog-actions>

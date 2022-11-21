@@ -10,9 +10,36 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
+.full-width {
+  width: 100% !important;
+}
 
 .frame {
   width: auto !important;
   margin-left: 30.5px !important;
   margin-right: 30.5px !important;
+}
+
+h5 {
+  font-family: 'Lato', sans-serif !important;
+  font-style: normal !important;
+  font-weight: 400 !important;
+  font-size: 24px !important;
+}
+
+.row {
+  display: flex;
+  width: 100%;
+}
+
+.col-50 {
+  width: 50%;
+}
+
+.floatright {
+  float: right;
+}
+
+.floatleft {
+  float: left;
 }

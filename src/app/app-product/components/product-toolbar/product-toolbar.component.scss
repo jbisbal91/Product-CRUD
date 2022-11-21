@@ -1,6 +1,4 @@
-.btn-delete,
-.btn-preview,
-.btn-edit {
+.btn {
   color: #757575;
   border: solid 1px #757575;
   height: 30px !important;
@@ -14,4 +12,25 @@
   height: 30px !important;
   width: 30px !important;
   min-width: 30px !important;
+}
+
+
+
+.button-toggle-group-product {
+  height: 30px;
+  margin-right: 10px;
+  color: #757575;
+  border: solid 1px #757575;
+}
+
+.content-icon {
+  font-size: 16px;
+  margin-top: -6px;
+  margin-left: -8px;
+  color: #757575;
+}
+
+::ng-deep .button-toggle-group-product .mat-button-toggle-button {
+  width: 35px !important;
+  height: 30px !important;
 }

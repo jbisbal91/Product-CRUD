@@ -1,5 +1,9 @@
-<div class="frame">
-    <product-toolbar style="margin-top:80px; margin-bottom:20px;; float: right;"></product-toolbar>
-    <product-table></product-table>
+<div class="frame" [ngSwitch]="viewSelected">
+  <div style="margin-top:80px; z-index: 1000;">
+    <product-toolbar (onChangedView)="onChangedView($event)"> </product-toolbar>
+  </div>
+  <div class="product-container">
+    <product-card-list *ngSwitchCase="'Card View'"></product-card-list>
+    <product-table *ngSwitchCase="'List View'"></product-table>
+  </div>
 </div>
-

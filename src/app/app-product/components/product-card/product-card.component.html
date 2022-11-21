@@ -1,1 +1,28 @@
-<p>product-card works!</p>
+<div class="product-card-wrap" [class.selected-product]="selected" (click)="onChangedSelected()">
+  <div style="margin-left: 10px; margin-right: 10px;">
+    <div style="padding-top:10px; color: #656C79;">
+      <span> {{product.name}} </span>
+    </div>
+
+    <div style="padding-top: 10px; display:flex; justify-content: center;">
+      <img class="product-card-img" src={{product.imgURL}} alt="">
+    </div>
+
+    <div style="padding-top:10px; color: #000000; font-weight: 600;">
+        <span> ${{product.price}} </span>
+    </div>
+
+    <div style="padding-top:5px; color: #656C79;">
+        <span> {{product.serialNumber}} </span>
+      </div>
+
+      <div style="padding-top:5px; color: #000000; font-weight: 400;">
+        <span matTooltip="{{product.description.length > 100 ? product.description: ''}}">
+            {{truncate(product.description)}}
+          </span>
+      </div>
+    
+    
+  </div>
+
+</div>
